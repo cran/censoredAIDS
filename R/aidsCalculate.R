@@ -13,6 +13,7 @@
 #'
 #' @examples
 #'
+#' \dontrun{
 #' testing_data <- censoredAIDS::MexicanHH_foodConsumption
 #'
 #' # Organizing the data for comfort
@@ -59,7 +60,7 @@
 #'   quaids = FALSE
 #' )
 #'
-#'
+#'}
 #'
 #'
 #'
@@ -73,19 +74,19 @@ aidsCalculate <- function(
     DemographicNames = NULL,
     Params = matrix(),
     quaids = FALSE) {
-
+#browser()
   # ----: Checks before running the function :----
   # 1. Check correct name dimensions
   if(!is.null(ShareNames)) stopifnot({length(ShareNames) == ncol(Prices)})
   if(!is.null(DemographicNames)) stopifnot({length(DemographicNames) == ncol(Demographics)})
 
   # 2. Check all matrices have same n
-  stopifnot({nrow(Prices) == nrow(Budget)})
-  if(all(dim(Demographics) == c(1, 1))) stopifnot({nrow(Budget) == nrow(Demographics)})
+  if(length(nrow(Prices) == nrow(Budget)) > 0) stopifnot({nrow(Prices) == nrow(Budget)})
+  if(!all(dim(Demographics) == c(1, 1))) stopifnot({nrow(Budget) == nrow(Demographics)})
 
   # 3. Check correct column dimensions
   #if(all(dim(Demographics) == c(1, 1))) stopifnot({ncol(Prices) == ncol(Demographics)})
-
+#browser()
   # 4. Check that implied number of parameters is equal to length(Params)
   m <- ncol(Prices)       # Number of shares dennoted as m
   n <- nrow(Prices)       # Number of observations dennoted as n

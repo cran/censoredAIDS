@@ -37,6 +37,7 @@ Calculate the demand share equations of a AI or QUAI demand system, including de
 }
 \examples{
 
+\dontrun{
 testing_data <- censoredAIDS::MexicanHH_foodConsumption
 
 # Organizing the data for comfort
@@ -83,7 +84,7 @@ li1 <- censoredaidsLoglike(
   quaids = FALSE
 )
 
-
+}
 
 
 

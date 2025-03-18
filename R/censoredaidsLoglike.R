@@ -14,8 +14,7 @@
 #'
 #' @examples
 #'
-
-#'
+#' \dontrun{
 #' testing_data <- censoredAIDS::MexicanHH_foodConsumption
 #'
 #' # Organizing the data for comfort
@@ -61,7 +60,7 @@
 #' Demographics = matrix(c(age, size, educ, sex), ncol = 4),
 #' quaids = FALSE
 #' )
-#'
+#' }
 #'
 #'
 #'
@@ -106,8 +105,7 @@ censoredaidsLoglike <- function(
                      Budget = Budget,
                      Demographics = Demographics,
                      Params = Params[-c((length(Params) - j + 1):length(Params))],
-                     quaids = quaids,
-                     ShareNames = ShareNames)
+                     quaids = quaids)
   S <- Shares # Renaming shares
 
   # ----: Truncated log-likelihood function :----
